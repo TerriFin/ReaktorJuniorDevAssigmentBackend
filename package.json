@@ -1,0 +1,19 @@
+{
+  "name": "reaktorjuniordevassigmentbackend",
+  "version": "1.0.0",
+  "description": "Backend for Reaktori junior dev assigment",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TerriFin/ReaktorJuniorDevAssigmentBackend.git"
+  },
+  "author": "Sami Saukkonen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TerriFin/ReaktorJuniorDevAssigmentBackend/issues"
+  },
+  "homepage": "https://github.com/TerriFin/ReaktorJuniorDevAssigmentBackend#readme"
+}
