@@ -14,7 +14,7 @@ statusRouter.get('/index', (req, res) => {
   res.json(moduleNames)
 })
 
-statusRouter.get('/module/:moduleName', (req, res) => {
+statusRouter.get('/index/:moduleName', (req, res) => {
   res.json(moduleData[req.params.moduleName])
 })
 
