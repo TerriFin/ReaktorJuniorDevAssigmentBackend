@@ -9,5 +9,7 @@ const app = express()
 app.use(cors())
 // Use a router we defined in controllers to handle / calls
 app.use('/api', statusRouter)
+// Use static builded react app
+app.use(express.static('build'))
 
 module.exports = app
