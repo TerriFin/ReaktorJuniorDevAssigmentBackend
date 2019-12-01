@@ -1,20 +1,15 @@
 const statusRouter = require('express').Router()
 const statusReader = require('../utils/readStatus')
 
-let moduleData = {}
-let moduleNames = []
-
-const prepareThisFile = async () => {
-  [moduleData, moduleNames] = await statusReader.giveAllStatuses()
-}
-
-prepareThisFile()
-
-statusRouter.get('/api', (req, res) => {
+// Return an array of just module names, sorted alphabetically
+statusRouter.get('/', async (req, res) => {
+  const [moduleData, moduleNames] = await statusReader.giveAllStatuses()
   res.json(moduleNames)
 })
 
-statusRouter.get('/api/:moduleName', (req, res) => {
+// Return the required module data
+statusRouter.get('/:moduleName', async (req, res) => {
+  const [moduleData, moduleNames] = await statusReader.giveAllStatuses()
   res.json(moduleData[req.params.moduleName])
 })
 
