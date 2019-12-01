@@ -44,11 +44,11 @@ const setReverseDependencies = (data) => {
       dependencies.forEach((dependency) => {
         const index = keys.indexOf(dependency)
         if (index > -1) {
-          if (typeof data[keys[index]].reverseDependency === 'undefined') {
-            data[keys[index]].reverseDependency = []
+          if (typeof data[keys[index]].reverseDependencies === 'undefined') {
+            data[keys[index]].reverseDependencies = []
           }
 
-          data[keys[index]].reverseDependency.push(key)
+          data[keys[index]].reverseDependencies.push(key)
         }
       })
     }
@@ -59,6 +59,7 @@ const giveAllStatuses = async () => fs.readFile(pathToFile, 'utf8')
   .then((contents) => {
     const content = contents.split('\n')
 
+    let moduleId = 0
     const moduleData = {}
     const moduleNames = []
     let currentPackage = {}
@@ -80,6 +81,8 @@ const giveAllStatuses = async () => fs.readFile(pathToFile, 'utf8')
         currentPackage.dependencies = extractDependencies(line)
       } else if (line === '') {
         if (currentPackageName !== '') {
+          currentPackage.id = moduleId
+          moduleId += 1
           newPackage = true
           moduleData[currentPackageName] = currentPackage
           currentPackage = {}

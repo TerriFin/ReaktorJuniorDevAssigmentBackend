@@ -10,11 +10,11 @@ const prepareThisFile = async () => {
 
 prepareThisFile()
 
-statusRouter.get('/index', (req, res) => {
+statusRouter.get('/api', (req, res) => {
   res.json(moduleNames)
 })
 
-statusRouter.get('/index/:moduleName', (req, res) => {
+statusRouter.get('/api/:moduleName', (req, res) => {
   res.json(moduleData[req.params.moduleName])
 })
 
